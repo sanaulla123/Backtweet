@@ -1,0 +1,32 @@
+<!doctype>
+<html>
+	<head>
+	
+		<link rel="stylesheet" href="css/main.css" type="text/css" media="screen">
+		<script src="javascript/vendor/jquery.js"></script>
+		<script src="javascript/vendor/underscore.js"></script>
+		<script src="javascript/vendor/backbone.js"></script>
+		<script src="javascript/backtweet.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				window.App = {};
+				App.userTimeline = new Backtweet.Timeline();
+				App.tweetListView = new Backtweet.TweetListView({collection: App.userTimeline});
+			});
+		</script>
+		
+		<script type="text/x-underscore-template" id="tweetView">
+			<article class="listItem">
+				<h4><%= text %></h4>
+				<em><%= created_at %></em>
+			</article>
+		</script>
+	</head>
+	
+	<body>
+		<h1>Tweets</h1>
+		<ul id="tweetList">
+		</ul>
+	</body>
+</html>
